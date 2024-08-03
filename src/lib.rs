@@ -7,7 +7,7 @@ use std::{
 pub struct Edge<T, W>
 where
     T: PartialEq + Eq + Hash + Clone,
-    W: PartialEq + Eq + Clone,
+    W: Ord + Clone,
 {
     source: T,
     destination: T,
@@ -18,7 +18,7 @@ where
 pub struct Graph<T, W>
 where
     T: PartialEq + Eq + Hash + Clone,
-    W: PartialEq + Eq + Ord + Clone,
+    W: Ord + Clone,
 {
     vertices: HashSet<T>,
     edges: Vec<Edge<T, W>>,
@@ -26,7 +26,7 @@ where
 impl<T, W> Graph<T, W>
 where
     T: PartialEq + Eq + Hash + Clone,
-    W: PartialEq + Eq + Ord + Clone,
+    W: Ord + Clone,
 {
     pub fn new() -> Self {
         Self {
